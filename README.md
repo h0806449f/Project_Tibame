@@ -1,7 +1,8 @@
 (中 Chinese/ 英 English)
 
 # 專案名稱 : 宅經濟 - 虛擬偶像辨識
-# 專案目的 : 讓使用者透過 AI 模型, 與展覽場地中的人形立牌 或 二次創作的商品, 進行互動
+# 專案目的 :   
+讓使用者透過 AI 模型, 與展覽場地中的人形立牌 或 二次創作的商品, 進行互動
 # 技術概要 : 
     1. 前端 : LineBOT, 網頁, APP(Android only)
     2. 後端 : 地端server
@@ -11,8 +12,8 @@
 # AI model 訓練過程
 # 第一次模型建立
 1. 蒐集資料 : 
-    使用技術 : OpenCV
-    Vtuber : 2 位
+    - 使用技術 : OpenCV
+    - Vtuber : 2 位
 2. 模型 : 
     仿製少層的 VGG16
 3. 問題點 :  
@@ -21,26 +22,27 @@
 
 # 第二次模型建立
 1. 優化想法 : 
-    1.1 擷取的圖片, 需要更集中在人物面部特徵
-    1.2 完全去除背景
+    - 擷取的圖片, 需要更集中在人物面部特徵
+    - 完全去除背景
 2. 蒐集資料 : 
-    使用技術 : OpenCV, SAM
-    Vtuber : 6 位
+    - 使用技術 : OpenCV, SAM
+    - Vtuber : 6 位
 3. 模型 : 
-    VGG16
+    - VGG16
 4. 問題點 : 
     - AI model 訓練完成, 但是, 用於辨識 人形立牌 或 二次創作的商品 時, 效果不好   (a. 訓練資料與真實場景, 差異過大)
     - Vtuber數量增加, 特徵容易重複, 需要截取更多特徵   (a. 增加模型深度 b. 更換深度更深的模型)
 
 # 第三次模型建立
 1. 優化想法 : 
-    1.1 在訓練資料中, 直接加入 人形立牌 或 二次創作的商品 等圖片
-    1.2 使用 ResNet 101 v2 模型
+    - 在訓練資料中, 直接加入 人形立牌 或 二次創作的商品 等圖片
+    - 使用 ResNet 101 v2 模型
 2. 蒐集資料 : 
-    使用技術 : OpenCV, SAM, 現實照片
-    Vtuber : 6 位
+    - 使用技術 : OpenCV, SAM, 現實照片
+    - Vtuber : 6 位
 3. 模型 : 
-    ResNet 50 v2  &  ResNet 101 v2
+    - ResNet 50 v2
+    - ResNet 101 v2
 
 # 成果
 第三次模型, 於訓練過程 真實場景 辨識效果良好, 將此模型部署  
@@ -54,6 +56,6 @@ CNN 於辨識單一目標的圖像時, 效果良好。
 
 1. 蒐集資料 : 直接使用 人形立牌 或 二次創作的商品 等圖片
 2. 標記資料 : 
-    2.1 API : https://hub.ultralytics.com/
+    - API : https://hub.ultralytics.com/
 3. 模型成果影片 : 
-    3.1 https://www.youtube.com/playlist?list=PLjW4Ibuk2-7BTD_uz0qU2fADAdJYOdUiN
+    - https://www.youtube.com/playlist?list=PLjW4Ibuk2-7BTD_uz0qU2fADAdJYOdUiN
