@@ -1,9 +1,49 @@
-測試模型一
-1. 使用 VGG16 測試模型能否分辨兩位不同Vtuber
-2. 資料來源 : Youtube -> OpenCV
-3. 圖片大小 : 500 * 500
-4. 小結 :   
-    - 背景因素影響過大 -> 模型將白色背景當作 A_Vtuber 的特徵 / 將黑色背景當作 B_Vtuber 的特徵
-    - Vtuber 在 500 * 500 的圖片中 僅占圖片區域 1/4 -> 可縮小圖片
+(中 Chinese/ 英 English)
 
-![Image text](https://github.com/h0806449f/Project_Tibame/blob/main/%E7%AC%AC%E4%B8%80%E6%AC%A1.png)
+# 專案名稱 : 宅經濟 - 虛擬偶像辨識
+# 專案目的 : 讓使用者透過 AI 模型, 與展覽場地中的人形立牌 或 二次創作的商品, 進行互動
+# 技術概要 : 
+    1. 前端 : LineBOT, 網頁, APP(Android only)
+    2. 後端 : 地端server
+    3. AI model : CNN ResNet 101 v2
+                  YOLO v8
+                  
+# AI model 訓練過程
+# 第一次模型建立
+1. 蒐集資料 : 
+    使用技術 : OpenCV
+    Vtuber : 2 位
+2. 模型 : 
+    仿製少層的 VGG16
+3. 問題點 :  
+    - 背景因素影響過大 -> AI model 已背景為判斷基準, 非人物
+    - ![Image text](https://github.com/h0806449f/Project_Tibame/blob/main/%E7%AC%AC%E4%B8%80%E6%AC%A1.png)
+
+# 第二次模型建立
+1. 優化想法 : 
+    1.1 擷取的圖片, 需要更集中在人物面部特徵
+    1.2 完全去除背景
+2. 蒐集資料 : 
+    使用技術 : OpenCV, SAM
+    Vtuber : 6 位
+3. 模型 : 
+    VGG16
+4. 問題點 : 
+    - AI model 訓練完成, 但是, 用於辨識 `人形立牌 或 二次創作的商品` 時, 效果不好   (a. 訓練資料與真實場景, 差異過大)
+    - Vtuber數量增加, 特徵容易重複, 需要截取更多特徵   (a. 增加模型深度 b. 更換深度更深的模型)
+
+# 第三次模型建立
+1. 優化想法 : 
+    1.1 在訓練資料中, 直接加入 `人形立牌 或 二次創作的商品` 等圖片
+    1.2 使用 ResNet 101 v2 模型
+2. 蒐集資料 : 
+    使用技術 : OpenCV, SAM, 現實照片
+    Vtuber : 6 位
+3. 模型 : 
+    ResNet 50 v2  &  ResNet 101 v2
+
+第三次模型, 於訓練過程 真實場景 辨識效果良好, 將此模型部署
+受限於 CNN 與 LibeBOT 的功能限制
+為了進一步提升互動性 -> 額外增加另一種模型
+
+# AI model - YOLO v8
