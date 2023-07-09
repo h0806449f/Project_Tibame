@@ -1,6 +1,8 @@
 (中 Chinese/ 英 English)
 
-# 專案名稱 : 宅經濟 - 虛擬偶像辨識
+# 專案名稱 : 宅經濟 - 虛擬偶像辨識  
+簡報PDF: https://drive.google.com/drive/u/0/folders/1JBadWmJ16yvmhH8hIDYWHGj-sUE45_WS  
+簡報: https://www.youtube.com/watch?v=cYjT20G_zG4
 # 專案目的 :   
 讓使用者透過 AI 模型, 與展覽場地中的人形立牌 或 二次創作的商品, 進行互動
 # 技術概要 : 
